@@ -1,24 +1,114 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>contacto</title>
+    <title>Contacto</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            font-family: 'Roboto', Arial, sans-serif;
+            color: #333;
+        }
+        .container {
+            margin-top: 60px;
+        }
+        .card {
+            padding: 20px;
+            border: none;
+            border-radius: 10px;
+            background: #fff;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+        .card-header {
+            font-size: 1.8rem;
+            font-weight: bold;
+            background: linear-gradient(to right, #2575fc, #6a11cb);
+            color: #fff;
+            border-radius: 10px 10px 0 0;
+            padding: 15px;
+            text-align: center;
+        }
+        .form-group label {
+            font-weight: bold;
+        }
+        .btn-primary {
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            border: none;
+        }
+        .btn-primary:hover {
+            background: linear-gradient(to right, #2575fc, #6a11cb);
+        }
+        .alert {
+            margin-top: 20px;
+            animation: fadeIn 1s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        footer {
+            margin-top: 50px;
+            text-align: center;
+            color: #fff;
+        }
+        footer a {
+            color: #fff;
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
-    {% if info_enviado %}
-        <h2>La informacion suministrada es:  </h2>
-        {{ email }}    
-        {{ title }}    
-        {{ text }}
-    {% else %}
-        <form action="" method="post">
-            {% csrf_token %}
-            {{ formulario.as_p }}
-            <input type="submit" value="Enviar">
-
-        </form>
-    {% endif %}
-
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                <i class="fas fa-envelope"></i> Formulario de Contacto
+            </div>
+            <div class="card-body">
+                {% if info_enviado %}
+                    <div class="alert alert-success text-center">
+                        <h4><i class="fas fa-check-circle"></i> ¡Mensaje enviado con éxito!</h4>
+                        <p><strong>Email:</strong> {{ email }}</p>
+                        <p><strong>Título:</strong> {{ title }}</p>
+                        <p><strong>Mensaje:</strong> {{ text }}</p>
+                        <a href="{% url 'vista_contacto' %}" class="btn btn-outline-primary mt-3">Enviar otro mensaje</a>
+                    </div>
+                {% else %}
+                    <form action="" method="post">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="correo"><i class="fas fa-envelope"></i> Correo Electrónico</label>
+                            {{ formulario.correo }}
+                        </div>
+                        <div class="form-group">
+                            <label for="titulo"><i class="fas fa-heading"></i> Título</label>
+                            {{ formulario.titulo }}
+                        </div>
+                        <div class="form-group">
+                            <label for="texto"><i class="fas fa-comment-dots"></i> Mensaje</label>
+                            {{ formulario.texto }}
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">
+                            <i class="fas fa-paper-plane"></i> Enviar
+                        </button>
+                    </form>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2024 Mi Sitio Web | Diseñado con ❤️ por <a href="#">Yamid</a></p>
+    </footer>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
 </body>
 </html>
+

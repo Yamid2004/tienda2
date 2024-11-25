@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar sesión</title>
+    <!-- Agregar Bootstrap para un diseño más moderno -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEJX3PQ4V4K4y32HhvivPjw9pV34jjW8skVYcXFSHJ70Y6G17b6ldkA3v8R+u" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Arial', sans-serif;
+        }
+        .login-container {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 30px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .login-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #343a40;
+        }
+        .btn-custom {
+            background-color: #007bff;
+            color: white;
+        }
+        .btn-custom:hover {
+            background-color: #0056b3;
+        }
+        .register-link {
+            display: block;
+            text-align: center;
+            margin-top: 15px;
+        }
+        .register-link a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        .register-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Iniciar sesión</h2>
+
+        <!-- Formulario de inicio de sesión -->
+        <form method="POST">
+            {% csrf_token %}
+            <div class="mb-3">
+                {{ form.username.label_tag }} 
+                {{ form.username }}
+            </div>
+            <div class="mb-3">
+                {{ form.password.label_tag }} 
+                {{ form.password }}
+            </div>
+            <button type="submit" class="btn btn-custom btn-block w-100">Iniciar sesión</button>
+        </form>
+
+        <p class="register-link">¿No tienes cuenta? <a href="{% url 'registro' %}">Regístrate aquí</a></p>
+    </div>
+
+    <!-- Scripts de Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz4fnFO9gyb2w9g0p5AiAsl/Z9F3ZL6l3Q5/5KZfO+3bZ4LZXb03l4k6Z9" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-pzjw8f+ua7Kw1TIq0v8Fqk+XUu1RVqKxk5jvOS73GrZV/yZDoU9zgh5M61jXQXNi" crossorigin="anonymous"></script>
+</body>
+</html>

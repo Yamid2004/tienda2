@@ -25,7 +25,9 @@ SECRET_KEY = 'django-insecure-@dt*lpyo-0jx&7^=vs47p%iept-3gho()c4*t2t@=a34+%mo11
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["127.0.0.1", "localhost"]
+# ALLOWED_HOSTS = [["usuraio.pythonanywhere.com"]] 
+
 
 
 # Application definition
@@ -38,6 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'home2',
+    'services',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -75,16 +79,21 @@ WSGI_APPLICATION = 'tienda2.wsgi.application'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'tiendaf',
-        'USER': 'root',
-        'PASSWORD' : '',
-        'HOST' : 'localhost',
-        'PORT': '3306',
+    "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": "mydatabase",
     }
 }
-
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'tienda',
+#         'USER': 'root',
+#         'PASSWORD' : '',
+#         'HOST' : 'localhost',
+#         'PORT': '3306',
+#      }
+#  }
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
@@ -121,8 +130,30 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = 'static/'
+#STATIC_ROOT = 'static'
+
+STATICFILES_DIRS = [
+   BASE_DIR / "static",
+]
+
+
+MEDIA_URL = 'media/'
+MEDIA_ROOT = 'media'
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# --- Configuración de autenticación --- #
+
+# URL de inicio de sesión para redirección con @login_required
+LOGIN_URL = '/login/'  # Cambiar esta URL a la ruta real de tu vista de inicio de sesión
+
+# URL de redirección después de iniciar sesión
+LOGIN_REDIRECT_URL = '/'
+
+# URL de redirección después de cerrar sesión
+LOGOUT_REDIRECT_URL = '/'

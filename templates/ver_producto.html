@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% block titulo %}
+    Ver Detalle del Producto
+{% endblock %}
+
+{% block contenido %}
+    <div class="container my-5">
+        <!-- Título Principal -->
+        <div class="text-center mb-5">
+            <h1 class="display-4 fw-bold text-primary">{{ producto.nombre }}</h1>
+            <p class="lead text-muted">Detalles del producto seleccionado</p>
+        </div>
+
+        <div class="row justify-content-center">
+            <!-- Detalles del Producto -->
+            <div class="col-md-8">
+                <div class="card shadow-sm border-0">
+                    <!-- Imagen del producto -->
+                    <div class="overflow-hidden position-relative">
+                        {% if producto.foto %}
+                            <img src="{{ producto.foto.url }}" class="card-img-top" alt="{{ producto.nombre }}" style="height: 300px; object-fit: cover;">
+                        {% else %}
+                            <img src="https://via.placeholder.com/300x250" class="card-img-top" alt="Sin imagen disponible">
+                        {% endif %}
+                    </div>
+
+                    <!-- Información del producto -->
+                    <div class="card-body">
+                        <h5 class="card-title text-primary">Información General</h5>
+                        <p class="card-text"><strong>ID:</strong> {{ producto.id }}</p>
+                        <p class="card-text"><strong>Precio:</strong> ${{ producto.precio }}</p>
+                        <p class="card-text"><strong>Stock:</strong> {{ producto.stock }}</p>
+                        <p class="card-text"><strong>Marca:</strong> {{ producto.marca }}</p>
+                    </div>
+
+                    <!-- Botones de Acción -->
+                    <div class="card-footer text-center bg-light d-flex justify-content-around p-3">
+                        <a href="{% url 'lista_producto' %}" class="btn btn-secondary btn-sm">
+                            <i class="fas fa-arrow-left"></i> Volver a la lista
+                        </a>
+                        <a href="{% url 'editar_producto' id_prod=producto.id %}" class="btn btn-warning btn-sm">
+                            <i class="fas fa-edit"></i> Editar Producto
+                        </a>
+                        <a href="{% url 'eliminar_producto' id_prod=producto.id %}" class="btn btn-danger btn-sm" onclick="return confirm('¿Seguro que deseas eliminar este producto?');">
+                            <i class="fas fa-trash"></i> Eliminar Producto
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+<style>
+    /* Imagen en detalle con borde suave */
+    .card-img-top {
+        border-bottom: 2px solid #ddd;
+    }
+
+    /* Botón flotante de "Volver a la lista" */
+    .card-footer a {
+        border-radius: 25px;
+    }
+
+    .card-footer a:hover {
+        box-shadow: 0 4px 12px rgba(0, 123, 255, 0.2);
+    }
+</style>

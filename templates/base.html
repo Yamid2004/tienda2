@@ -6,24 +6,78 @@
     <title>{% block titulo %}Mi Sitio{% endblock %}</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <style>
+        /* Estilos personalizados */
+        header {
+            background-color: #343a40;
+            padding: 1rem 0;
+        }
+        header img {
+            height: 80px;
+        }
+        header nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 1rem;
+        }
+        header nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        header nav ul li a:hover {
+            color: #ffc107;
+        }
+        .container {
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+        }
+        footer {
+            background-color: #343a40;
+            color: white;
+            padding: 1rem 0;
+            text-align: center;
+        }
+        footer p {
+            margin: 0;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="{% url 'home' %}">Inicio</a></li>
-                <li><a href="{% url 'funko' %}">funko</a></li>
-                <!-- Otros enlaces -->
-            </ul>
-        </nav>
+
+    <!-- Header -->
+    <header class="text-white text-center">
+        <div class="container d-flex align-items-center justify-content-between">
+            <img src="https://www.ceupe.com/images/easyblog_articles/3625/b2ap3_large_que-es-un-tienda-online.png" alt="Logo">
+            <nav>
+                <ul class="d-flex mb-0">
+                    <li><a href="{% url 'home' %}">Inicio</a></li>
+                    <li><a href="{% url 'funko' %}">Explorar Mas</a></li>
+                    <!-- Añadir más enlaces si es necesario -->
+                </ul>
+            </nav>
+        </div>
     </header>
+
+    <!-- Main Content -->
     <main>
-        {% block contenido %}
-        <!-- Contenido específico de cada página -->
-        {% endblock %}
+        <div class="container">
+            {% block contenido %}
+            <!-- Contenido específico de cada página -->
+            {% endblock %}
+        </div>
     </main>
+
+    <!-- Footer -->
     <footer>
         <p>&copy; 2024 Mi Sitio. Todos los derechos reservados.</p>
     </footer>
+
+    <!-- JavaScript -->
     <script src="{% static 'js/scripts.js' %}"></script>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
 </body>
+</html>

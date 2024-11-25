@@ -1,13 +1,189 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>funko</title>
+    <title>Tienda Virtual - Productos</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        h2 {
+            font-size: 2rem;
+            font-weight: bold;
+            text-align: center;
+            color: #343a40;
+            margin-bottom: 30px;
+        }
+        .category-header {
+            margin-top: 50px;
+            font-size: 1.75rem;
+            font-weight: 600;
+            color: #007bff;
+            margin-bottom: 30px;
+        }
+        .product-card {
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+        }
+        .product-card img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        .product-card h5 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-top: 15px;
+        }
+        .product-card p {
+            color: #555;
+        }
+        .btn-custom {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        .btn-custom:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
-    <h2 style="text-align: center;">aqui se muestran los funko</h2>
 
-    
+    <div class="container">
+        <h2>Bienvenido a Nuestra Tienda Virtual</h2>
+
+        <!-- Categoría: Deportes -->
+        <div class="category-header">Deportes</div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="product-card">
+                    <img src="https://http2.mlstatic.com/D_NQ_NP_964002-MCO75654676714_042024-O.webpg" alt="Balón de Fútbol">
+                    <h5>Balón de Fútbol</h5>
+                    <p>Balón de alta calidad para partidos de fútbol. Ideal para entrenamiento y partidos recreativos.</p>
+                    <a href="#" class="btn-custom">Comprar Ahora</a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="product-card">
+                    <img src="https://larrytennis.com/cdn/shop/products/WR108311U__14a373a91d949da0ecc6c27b132cd1e1_c1dff465-603c-49c2-82b1-881006ff9f1a_2048x2048.jpg?v=1673110848" alt="Raqueta de Tenis">
+                    <h5>Raqueta de Tenis</h5>
+                    <p>Raqueta profesional de tenis para jugadores intermedios y avanzados. Ligera y duradera.</p>
+                    <a href="#" class="btn-custom">Comprar Ahora</a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="product-card">
+                    <img src="https://i.pinimg.com/originals/da/29/f8/da29f8d679a1b3ed6979df7f30dfea58.jpg" alt="Bicicleta de Montaña">
+                    <h5>Bicicleta de Montaña</h5>
+                    <p>Diseñada para rutas extremas, con suspensión total para garantizar una conducción suave y segura.</p>
+                    <a href="#" class="btn-custom">Comprar Ahora</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Categoría: Alimentos -->
+        <div class="category-header">Alimentos</div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="product-card">
+                    <img src="https://cdn0.uncomo.com/es/posts/0/4/9/como_hacer_snacks_saludables_51940_orig.jpg" alt="Snacks Saludables">
+                    <h5>Snacks Saludables</h5>
+                    <p>Deliciosos y saludables, perfectos para picar entre comidas. Hechos con ingredientes naturales.</p>
+                    <a href="#" class="btn-custom">Comprar Ahora</a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="product-card">
+                    <img src="https://mejorconsalud.as.com/wp-content/uploads/2017/11/cereales-integrales-dieta-768x512.jpg?auto=webp&quality=60&width=1920&crop=16:9,smart,safe" alt="Cereal Integral">
+                    <h5>Cereal Integral</h5>
+                    <p>Desayuno energético, rico en fibra y vitaminas, ideal para empezar el día con energía.</p>
+                    <a href="#" class="btn-custom">Comprar Ahora</a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="product-card">
+                    <img src="https://lirp.cdn-website.com/586fb047/dms3rep/multi/opt/jugos+naturales-1920w.jpg" alt="Jugos Naturales">
+                    <h5>Jugos Naturales</h5>
+                    <p>Jugos 100% naturales, sin aditivos ni conservantes, disponibles en varios sabores.</p>
+                    <a href="#" class="btn-custom">Comprar Ahora</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Categoría: Electrónica -->
+        <div class="category-header">Electrónica</div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="product-card">
+                    <img src="https://http2.mlstatic.com/D_NQ_NP_707825-MLA72508419694_102023-O.webp" alt="Auriculares Bluetooth">
+                    <h5>Auriculares Bluetooth</h5>
+                    <p>Auriculares inalámbricos con cancelación de ruido. Ideal para escuchar música o hacer llamadas.</p>
+                    <a href="#" class="btn-custom">Comprar Ahora</a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="product-card">
+                    <img src="https://www.apple.com/co/apple-watch-se/images/overview/hero/hero__f76n0zejlxqq_large.jpg" alt="Smartwatch">
+                    <h5>Smartwatch</h5>
+                    <p>Reloj inteligente con seguimiento de actividad, monitor de salud y notificaciones en tiempo real.</p>
+                    <a href="#" class="btn-custom">Comprar Ahora</a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="product-card">
+                    <img src="https://www.korolos.com.co/wp-content/uploads/2023/03/ECHO5KOROLOS.jpg" alt="Altavoz Inteligente">
+                    <h5>Altavoz Inteligente</h5>
+                    <p>Altavoz con asistente virtual integrado. Controla tus dispositivos de casa desde cualquier lugar.</p>
+                    <a href="#" class="btn-custom">Comprar Ahora</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Categoría: Ropa -->
+        <div class="category-header">Ropa</div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="product-card">
+                    <img src="https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/508e4c4b4fe64c99ac75aef6008b2e1d_9366/Camiseta_de_Entrenamiento_Train_Essentials_AEROREADY_3_Rayas_Ajuste_Cenido_Negro_HR5772_01_laydown.jpg" alt="Camiseta Deportiva">
+                    <h5>Camiseta Deportiva</h5>
+                    <p>Camiseta cómoda y transpirable, perfecta para entrenamientos y actividades al aire libre.</p>
+                    <a href="#" class="btn-custom">Comprar Ahora</a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="product-card">
+                    <img src="https://azzurry.com/wp-content/uploads/2024/08/0158_FB7687-010.jpg" alt="Sudadera Casual">
+                    <h5>Sudadera Casual</h5>
+                    <p>Sudadera de algodón suave, ideal para días fríos o para un look relajado en cualquier ocasión.</p>
+                    <a href="#" class="btn-custom">Comprar Ahora</a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="product-card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9bsYjCE3hrhdzw0HuG4w_U9TgqaJ3-IDEPA&s" alt="Pantalones Jeans">
+                    <h5>Pantalones Jeans</h5>
+                    <p>Pantalones cómodos y de alta calidad, disponibles en diferentes tallas y colores.</p>
+                    <a href="#" class="btn-custom">Comprar Ahora</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
 </body>
 </html>

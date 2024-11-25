@@ -1,11 +1,10 @@
 from django.db import models
 from django.core.validators import MinValueValidator
 
-# Create your models here.
+# Modelo Marca (puedes eliminarlo si ya no lo necesitas)
 class Marca(models.Model):
     nombre = models.CharField(max_length=100)
     
-
     def __str__(self):
         return self.nombre
 
@@ -19,12 +18,17 @@ class Categoria(models.Model):
 class Producto(models.Model):
     nombre = models.CharField(max_length=100)
     descripcion = models.TextField(max_length=500)
-    status = models.BooleanField(default= True)
+    status = models.BooleanField(default=True)
     precio = models.DecimalField(max_digits=10, decimal_places=2)
     stock = models.IntegerField(validators=[MinValueValidator(0)])
-    marca = models.ForeignKey(Marca, on_delete=models.CASCADE)
-    categorias = models.ManyToManyField(Categoria)
 
+    # Cambiar marca a CharField para permitir texto libre
+    # marca = models.CharField(max_length=100)  # Campo de texto para la marca
+    marca = models.ForeignKey(Marca, on_delete=models.PROTECT)  # Campo de texto para la marca
+
+    categorias = models.ManyToManyField(Categoria, null=True, blank=True)
+
+    foto = models.ImageField(upload_to='productos', null=True, blank=True)
 
     def __str__(self):
         return self.nombre
